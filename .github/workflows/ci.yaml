@@ -2,6 +2,10 @@ name: CI
 
 on: [push, pull_request]
 
+env:
+  GITHUB_USERNAME: ${{ github.actor }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   java:
     runs-on: ubuntu-latest

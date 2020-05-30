@@ -16,9 +16,21 @@ jobs:
       - name: Assemle Java Distributions
         run: gradle assembleDist
       - name: Upload Java Distributions
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
-          name: Distributions
-          path: build/distributions/
+          name: Distribution Zip
+          path: build/distributions/*.zip
+  docker:
+    runs-on: ubuntu-latest
+    needs: java
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - name: Build Docker Image
+        run: gradle dockerBuildImage
+    
       
    

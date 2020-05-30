@@ -14,6 +14,11 @@ application {
 }
 
 docker {
+    registryCredentials {
+        username.set(System.getenv("GITHUB_USERNAME"))
+        password.set(System.getenv("GITHUB_TOKEN"))
+        url.set("https://docker.pkg.github.com")
+    }
     javaApplication {
         maintainer.set("Roman Sosnovsky 'rvsosnovsky@gmail.com'")
         ports.set(emptyList())

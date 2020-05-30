@@ -1,4 +1,4 @@
-name: Docker
+name: CI
 
 on: [push, pull_request]
 
@@ -13,3 +13,7 @@ jobs:
           java-version: 11
       - name: Build Java
         run: gradle build
+      - name: Assemle Java
+        run: gradle assembleDist
+      
+   

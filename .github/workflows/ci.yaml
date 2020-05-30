@@ -15,10 +15,10 @@ jobs:
         run: gradle build
       - name: Assemle Java Distributions
         run: gradle assembleDist
-      - name: Upload math result for job 1
+      - name: Upload Java Distributions
         uses: actions/upload-artifact@v1
         with:
           name: Distributions
-          path: build/distributions/*
+          path: build/distributions/
       
    

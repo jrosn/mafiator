@@ -1,6 +1,9 @@
+import kotlin.collections.emptyList;
+
 plugins {
     kotlin("jvm") version "1.3.71"
     id("application")
+    id("com.bmuschko.docker-java-application") version "6.4.0"
 }
 
 group = "space.jrosn.mafiator"
@@ -8,6 +11,13 @@ version = "1.0-SNAPSHOT"
 
 application {
     mainClassName = "ApplicationKt"
+}
+
+docker {
+    javaApplication {
+        maintainer.set("Roman Sosnovsky 'rvsosnovsky@gmail.com'")
+        ports.set(emptyList())
+    }
 }
 
 repositories {
